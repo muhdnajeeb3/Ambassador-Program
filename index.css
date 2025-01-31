@@ -1,0 +1,6 @@
+.table-hidden{
+    display: none !important;
+}
+.active-link {
+    color: #fff !important;
+}
