@@ -3590,22 +3590,19 @@
      document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
   let currentPath = window.location.pathname.toLowerCase().replace(/\/$/, ""); // Remove trailing slash
-  
-  console.log("Current Path:", currentPath); // Debugging
 
   navLinks.forEach((link) => {
     let linkPath = new URL(link.href, window.location.origin)
       .pathname.toLowerCase()
+      .replace(/\.html$/, "") // Remove .html extension
       .replace(/\/$/, ""); // Remove trailing slash
-
-    console.log("Checking Link:", linkPath); // Debugging
 
     if (linkPath === currentPath) {
       link.classList.add("active-link");
-      console.log("Matched:", linkPath); // Debugging
     }
   });
 });
+
 
 
     </script>
