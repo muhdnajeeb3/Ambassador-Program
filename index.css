@@ -1,6 +1,24 @@
-.table-hidden{
-    display: none !important;
+.table-hidden {
+  display: none !important;
 }
 .active-link {
-    color: #fff !important;
+  color: #fff !important;
 }
+.approval-table td:first-child {
+  cursor: pointer;
+  color: #0d6efd;
+}
+.approval-table td:first-child:hover {
+  text-decoration: underline;
+}
+.enrolled-count:hover{
+color: #0d6efd;
+text-decoration: underline;
+cursor: pointer;
+}
+#pendingclaim-modal .modal-dialog{
+  max-width: 90%;
+}
+/* td:nth-child(3){
+    text-align-last: end;
+  } */

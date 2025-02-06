@@ -1324,20 +1324,14 @@
             <div id="two-column-menu"></div>
             <ul class="navbar-nav" id="navbar-nav">
               <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-
               <li class="nav-item">
-                <a class="nav-link menu-link" href="index.html">
-                  <i class="ri-pages-line"></i> <span>Dashboard</span>
+                <a class="nav-link menu-link" href="AdminDashboard.html">
+                  <i class="ri-pages-line"></i> <span>Admin Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-link" href="Master_index.html">
-                  <i class="ri-pages-line"></i> <span>Master Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu-link" href="StudentList.html">
-                  <i class="ri-pages-line"></i> <span>Student List</span>
+                <a class="nav-link menu-link" href="AmbassadorProfileList.html">
+                  <i class="ri-pages-line"></i> <span>Ambassador Profile</span>
                 </a>
               </li>
             </ul>
@@ -1441,7 +1435,7 @@
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-header">
-                    <h5 class="card-title mb-0">Student List</h5>
+                    <h5 class="card-title mb-0">Ambassador Profile</h5>
                   </div>
                   <div class="card-body">
                     <table
@@ -1451,54 +1445,62 @@
                     >
                       <thead>
                         <tr>
-                          <th>Student Name</th>
+                          <th>Name</th>
                           <th>Email</th>
-                          <th>Course Name</th>
-                          <!-- <th>Status(Reg/Enrolled)</th> -->
-                          <th>Payment %</th>
+                          <th>Contact No.</th>
                           <th>Status</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>Weam Ali Daffalla Mohammed</td>
                           <td>Mohammed@gmail.com</td>
-                          <td>Master of Business Administration (PMU)</td>
-                          <!-- <td>Enrolled</td> -->
-                          <td>79</td>
-                          <td>Claimed</td>
+                          <td>+971 1234567</td>
+                          <td>Active</td>
+                          <td title="Edit">
+                            <i class="ri-edit-line fs-2 cursor-pointer"></i>
+                          </td>
                         </tr>
                         <tr>
                           <td>Ramjaun Muhamad Bilaal</td>
                           <td>Bilaal@gmail.com</td>
-                          <td>Doctorate of Business Administration - Woolf</td>
-                          <!-- <td>Enrolled</td> -->
-                          <td>60</td>
-                          <td>Not Claimed</td>
+                          <td>+971 4534567</td>
+
+                          <td>In Active</td>
+                          <td title="Edit">
+                            <i class="ri-edit-line fs-2 cursor-pointer"></i>
+                          </td>
                         </tr>
                         <tr>
                           <td>Alameri Meera</td>
                           <td>Meera@gmail.com</td>
-                          <td>MBA in Business Analytics</td>
-                          <!-- <td>Enrolled</td> -->
-                          <td>76</td>
-                          <td>Claimed</td>
+                          <td>+971 1234543</td>
+
+                          <td>In Active</td>
+                          <td title="Edit">
+                            <i class="ri-edit-line fs-2 cursor-pointer"></i>
+                          </td>
                         </tr>
                         <tr>
                           <td>Mehmood Janjua Saad Ghazanfar</td>
                           <td>Ghazanfar@gmail.com</td>
-                          <td>Master of Business Administration (PMU)</td>
-                          <!-- <td>Enrolled</td> -->
-                          <td>40</td>
-                          <td>Not Claimed</td>
+                          <td>+971 1266567</td>
+
+                          <td>Active</td>
+                          <td title="Edit">
+                            <i class="ri-edit-line fs-2 cursor-pointer"></i>
+                          </td>
                         </tr>
                         <tr>
                           <td>Mulenga Catherine</td>
                           <td>Meera@gmail.com</td>
-                          <td>MBA in Business Analytics</td>
-                          <!-- <td>Enrolled</td> -->
-                          <td>76</td>
-                          <td>Claimed</td>
+                          <td>+971 1224567</td>
+
+                          <td>Active</td>
+                          <td title="Edit">
+                            <i class="ri-edit-line fs-2 cursor-pointer"></i>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -1575,6 +1577,45 @@
       </div>
     </div>
 
+    <div
+    class="modal fade"
+    id="userModal"
+    tabindex="-1"
+    aria-labelledby="userModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userModalLabel">Edit Details</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <strong>Name: </strong>
+            <span id="modalUserName"> Weam Ali Daffalla Mohammed</span>
+          </div>
+          <div class="mb-3">
+            <strong>Email:</strong>
+            <span id="modalUserEmail">Weam@gmail.com</span>
+          </div>
+          <div class="mb-3">
+            <strong>Status:</strong>
+            <span id="modalUserStatus">Active</span>
+          </div>
+          <div>
+            <button class="btn-primary btn">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <!-- JAVASCRIPT -->
 
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1604,6 +1645,21 @@
     <script src="assets/js/pages/datatables.init.js"></script>
     <!-- App js -->
     <script src="assets/js/app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelectorAll("#scroll-horizontal i")
+          .forEach((button) => {
+            button.addEventListener("click", function () {
+              // Show the modal
+              const modal = new bootstrap.Modal(
+                document.getElementById("userModal")
+              );
+              modal.show();
+            });
+          });
+      });
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const themeToggleBtn = document.getElementById("themeToggle");

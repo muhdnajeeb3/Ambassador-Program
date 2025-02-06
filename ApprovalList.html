@@ -24,6 +24,11 @@
 
     <link rel="stylesheet" href="index.css" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <!--datatable css-->
     <link
@@ -546,8 +551,7 @@
                   type="button"
                   class="btn btn-icon btn-topbar material-shadow-none btn-ghost-secondary rounded-circle light-dark-mode"
                   id="themeToggle"
-                
-                  >
+                >
                   <i class="bx bx-moon fs-22"></i>
                 </button>
               </div>
@@ -1331,14 +1335,15 @@
                   <i class="ri-pages-line"></i> <span>Master Dashboard</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link menu-link" href="StudentList.html">
                   <i class="ri-pages-line"></i> <span>Student List</span>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link menu-link" href="ApprovalList.html">
-                    <i class="ri-money-dollar-circle-line"></i> <span data-key="t-widgets">Approval</span>
+                  <i class="ri-money-dollar-circle-line"></i>
+                  <span data-key="t-widgets">Ambassador Approval</span>
                 </a>
               </li>
             </ul>
@@ -1382,7 +1387,61 @@
             <!--<div class="alert alert-danger" role="alert">
                         This is <strong>Datatable</strong> page in wihch we have used <b>jQuery</b> with cnd link!
                     </div>-->
+            <div class="d-flex justify-content-end mb-3">
+              <div class="dropdown">
+                <button
+                  id="dateRangeButton"
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Start Date To End Date
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="updateDropdown('Today')"
+                    >Today</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="updateDropdown('Last 30 days')"
+                    >Last 30 days</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="updateDropdown('Last 90 days')"
+                    >Last 90 days</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="updateDropdown('Last 6 months')"
+                    >Last 6 months</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="updateDropdown('Last 1 year')"
+                    >Last 1 year</a
+                  >
 
+                  <!-- Custom Range Option with Date Picker -->
+                  <div class="dropdown-item">
+                    <input
+                      type="text"
+                      id="dateRangeInput"
+                      class="form-control"
+                      placeholder="Custom Range"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-lg-12">
                 <div class="card">
@@ -1392,257 +1451,53 @@
                   <div class="card-body">
                     <table
                       id="scroll-horizontal"
-                      class="table nowrap align-middle"
+                      class="table nowrap align-middle approval-table"
                       style="width: 100%"
                     >
-                    <thead>
-                      <tr>
+                      <thead>
+                        <tr>
                           <th>Name</th>
                           <th>Email</th>
+                          <th>Registration Date</th>
+                          <th>Contact No</th>
                           <th>Status</th>
-                          <th>Approve</th>
-                          <th>Reject</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                        <td>Dipu Joseph</td>
-                        <td>dipu@schneideit.com</td>
-                        <td><span class="badge bg-info-subtle text-warning">Appoval Pending</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-soft-success">Approve</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-sm btn-soft-danger">Reject</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Deepak Joseph</td>
-                        <td>dipak@schneideit.com</td>
-                        <td><span class="badge bg-info-subtle text-success">Approved</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-soft-success">Approve</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-sm btn-soft-danger">Reject</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tarah Joseph</td>
-                        <td>tarah@schneideit.com</td>
-                        <td><span class="badge bg-info-subtle text-danger">Rejected</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-soft-success">Approve</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-sm btn-soft-danger">Reject</button>
-                        </td>
-                    </tr>
-                    <!--<tr>
-<td>03</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/ltc.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Litecoin (LTC)</a>
-</div>
-</td>
-<td>$149.65</td>
-<td>LTC/USDT</td>
-<td>$412.96</td>
-<td>$104.33</td>
-<td>$314,520,675</td>
-<td><h6 class="text-success fs-13 mb-0"><i class="mdi mdi-trending-up align-middle me-1"></i>0.89%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>04</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/xmr.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Monero (XMR)</a>
-</div>
-</td>
-<td>$17,491.16</td>
-<td>XRM/USDT</td>
-<td>$31,578.35</td>
-<td>$8691.75</td>
-<td>$9,847,327</td>
-<td><h6 class="text-success fs-13 mb-0"><i class="mdi mdi-trending-up align-middle me-1"></i>1.92%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>05</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/ant.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Aragon (ANT)</a>
-</div>
-</td>
-<td>$172.93</td>
-<td>SOL/USD</td>
-<td>$178.37</td>
-<td>$172.3</td>
-<td>$40,559,274</td>
-<td><h6 class="text-danger fs-13 mb-0"><i class="mdi mdi-trending-down align-middle me-1"></i>2.87%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>06</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/sol.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Solana (SOL)</a>
-</div>
-</td>
-<td>$17,491.16</td>
-<td>XRM/USDT</td>
-<td>$31,578.35</td>
-<td>$8691.75</td>
-<td>$9,847,327</td>
-<td><h6 class="text-success fs-13 mb-0"><i class="mdi mdi-trending-up align-middle me-1"></i>1.92%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>07</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/fil.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Filecoin (FIL)</a>
-</div>
-</td>
-<td>$13.31</td>
-<td>ANT/USD</td>
-<td>$13.85</td>
-<td>$12.53</td>
-<td>$156,209,195.18</td>
-<td><h6 class="text-success fs-13 mb-0"><i class="mdi mdi-trending-up align-middle me-1"></i>3.96%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>08</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/fil.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Filecoin (FIL)</a>
-</div>
-</td>
-<td>$35.21</td>
-<td>FIL/USD</td>
-<td>$36.41</td>
-<td>$35.03</td>
-<td>$374,618,945.51</td>
-<td><h6 class="text-danger fs-13 mb-0"><i class="mdi mdi-trending-down align-middle me-1"></i>0.84%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>09</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/aave.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Aave (AAVE)</a>
-</div>
-</td>
-<td>$275.47</td>
-<td>AAVE/USDT</td>
-<td>$277.11</td>
-<td>$255.01</td>
-<td>$156,209,195.18</td>
-<td><h6 class="text-success fs-13 mb-0"><i class="mdi mdi-trending-up align-middle me-1"></i>8.20%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>10</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/ada.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Cardano (ADA)</a>
-</div>
-</td>
-<td>$1.35</td>
-<td>ADA/USD</td>
-<td>$1.39</td>
-<td>$1.32</td>
-<td>$880,387,980.14</td>
-<td><h6 class="text-danger fs-13 mb-0"><i class="mdi mdi-trending-down align-middle me-1"></i>0.42%</h6></td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>11</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/fil.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Filecoin (FIL)</a>
-</div>
-</td>
-<td>$35.21</td>
-<td>FIL/USD</td>
-<td>$36.41</td>
-<td>$35.03</td>
-<td>$374,618,945.51</td>
-<td>
-<h6 class="text-danger fs-13 mb-0"><i class="mdi mdi-trending-down align-middle me-1"></i>0.84%</h6>
-</td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>12</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/aave.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Aave (AAVE)</a>
-</div>
-</td>
-<td>$275.47</td>
-<td>AAVE/USDT</td>
-<td>$277.11</td>
-<td>$255.01</td>
-<td>$156,209,195.18</td>
-<td>
-<h6 class="text-success fs-13 mb-0"><i class="mdi mdi-trending-up align-middle me-1"></i>8.20%</h6>
-</td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>
-<tr>
-<td>13</td>
-<td>
-<div class="d-flex align-items-center fw-medium">
-<img src="assets/images/svg/crypto-icons/ada.svg" alt="" class="avatar-xxs me-2">
-<a href="javascript:void(0);" class="currency_name">Cardano (ADA)</a>
-</div>
-</td>
-<td>$1.35</td>
-<td>ADA/USD</td>
-<td>$1.39</td>
-<td>$1.32</td>
-<td>$880,387,980.14</td>
-<td>
-<h6 class="text-danger fs-13 mb-0"><i class="mdi mdi-trending-down align-middle me-1"></i>0.42%</h6>
-</td>
-<td>
-<button class="btn btn-sm btn-soft-info">Trade Now</button>
-</td>
-</tr>-->
-                </tbody>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Dipu Joseph</td>
+                          <td>dipu@schneideit.com</td>
+                          <td>27-07-2024</td>
+                          <td>+971 1234567</td>
+                          <td>
+                            <button class="btn btn-sm btn-soft-success">
+                              Approved
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Deepak Joseph</td>
+                          <td>dipak@schneideit.com</td>
+                          <td>27-08-2024</td>
+                          <td>+97 17654321</td>
+                          <td>
+                            <button class="btn btn-sm btn-soft-danger">
+                              Not Approved
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Tarah Joseph</td>
+                          <td>tarah@schneideit.com</td>
+                          <td>27-09-2024</td>
+                          <td>+971 1237869</td>
+                          <td>
+                            <button class="btn btn-sm btn-soft-success">
+                              Approved
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -1716,101 +1571,112 @@
         ></button>
       </div>
     </div>
-<!-- Add this modal structure at the end of your body -->
-<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="userModalLabel">User Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <strong>Name:</strong> <span id="modalUserName"></span>
+    <!-- Add this modal structure at the end of your body -->
+    <div
+      class="modal fade"
+      id="userModal"
+      tabindex="-1"
+      aria-labelledby="userModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="userModalLabel">User Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <strong>Name:</strong> <span id="modalUserName"></span>
+            </div>
+            <div class="mb-3">
+              <strong>Email:</strong> <span id="modalUserEmail"></span>
+            </div>
+            <div class="mb-3">
+              <strong>Status:</strong> <span id="modalUserStatus"></span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="modalApprove">
+              Approve
+            </button>
+            <button type="button" class="btn btn-danger" id="modalReject">
+              Reject
+            </button>
+          </div>
         </div>
-        <div class="mb-3">
-          <strong>Email:</strong> <span id="modalUserEmail"></span>
-        </div>
-        <div class="mb-3">
-          <strong>Status:</strong> <span id="modalUserStatus"></span>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" id="modalApprove">Approve</button>
-        <button type="button" class="btn btn-danger" id="modalReject">Reject</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
-  </div>
-</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Add click handlers to name cells
-  document.querySelectorAll('td:first-child').forEach(cell => {
-    cell.style.cursor = 'pointer';
-    cell.addEventListener('click', function() {
-      const row = this.closest('tr');
-      const name = row.cells[0].textContent;
-      const email = row.cells[1].textContent;
-      const status = row.cells[2].querySelector('.badge').textContent;
-      
-      // Populate modal
-      document.getElementById('modalUserName').textContent = name;
-      document.getElementById('modalUserEmail').textContent = email;
-      document.getElementById('modalUserStatus').innerHTML = row.cells[2].innerHTML;
-      
-      // Store reference to the current row
-      const modal = new bootstrap.Modal(document.getElementById('userModal'));
-      modal.show();
-      
-      // Set up approve/reject handlers for this row
-      const approveBtn = document.getElementById('modalApprove');
-      const rejectBtn = document.getElementById('modalReject');
-      
-      const newApproveHandler = () => handleApproval(row, 'Approved');
-      const newRejectHandler = () => handleApproval(row, 'Rejected');
-      
-      // Remove previous event listeners
-      approveBtn.replaceWith(approveBtn.cloneNode(true));
-      rejectBtn.replaceWith(rejectBtn.cloneNode(true));
-      
-      // Add new event listeners
-      document.getElementById('modalApprove').addEventListener('click', newApproveHandler);
-      document.getElementById('modalReject').addEventListener('click', newRejectHandler);
-    });
-  });
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add click handlers to name cells
+        document.querySelectorAll("td:first-child").forEach((cell) => {
+          cell.style.cursor = "pointer";
+          cell.addEventListener("click", function () {
+            const row = this.closest("tr");
+            const name = row.cells[0].textContent;
+            const email = row.cells[1].textContent;
+            // const status = row.cells[2].querySelector('.badge').textContent;
 
-  function handleApproval(row, status) {
-    const badge = row.cells[2].querySelector('.badge');
-    badge.textContent = status;
-    
-    // Update badge color based on status
-    badge.classList.remove('text-warning', 'text-success', 'text-danger');
-    if (status === 'Approved') {
-      badge.classList.add('text-success');
-    } else if (status === 'Rejected') {
-      badge.classList.add('text-danger');
-    } else {
-      badge.classList.add('text-warning');
-    }
-    
-    // Close the modal
-    bootstrap.Modal.getInstance(document.getElementById('userModal')).hide();
-  }
-});
-</script>
+            // Populate modal
+            document.getElementById("modalUserName").textContent = name;
+            document.getElementById("modalUserEmail").textContent = email;
+            // document.getElementById('modalUserStatus').innerHTML = row.cells[2].innerHTML;
 
-<style>
-/* Add pointer cursor to name cells */
-td:first-child:hover {
-  cursor: pointer;
-  color: #0d6efd;
-  text-decoration: underline;
-}
-</style>
+            // Store reference to the current row
+            const modal = new bootstrap.Modal(
+              document.getElementById("userModal")
+            );
+            modal.show();
+
+            // Set up approve/reject handlers for this row
+            const approveBtn = document.getElementById("modalApprove");
+            const rejectBtn = document.getElementById("modalReject");
+
+            // const newApproveHandler = () => handleApproval(row, 'Approved');
+            // const newRejectHandler = () => handleApproval(row, 'Rejected');
+
+            // Remove previous event listeners
+            approveBtn.replaceWith(approveBtn.cloneNode(true));
+            rejectBtn.replaceWith(rejectBtn.cloneNode(true));
+
+            // Add new event listeners
+            document
+              .getElementById("modalApprove")
+              .addEventListener("click", newApproveHandler);
+            document
+              .getElementById("modalReject")
+              .addEventListener("click", newRejectHandler);
+          });
+        });
+
+        // function handleApproval(row, status) {
+        //   const badge = row.cells[2].querySelector('.badge');
+        //   badge.textContent = status;
+
+        //   // Update badge color based on status
+        //   badge.classList.remove('text-warning', 'text-success', 'text-danger');
+        //   if (status === 'Approved') {
+        //     badge.classList.add('text-success');
+        //   } else if (status === 'Rejected') {
+        //     badge.classList.add('text-danger');
+        //   } else {
+        //     badge.classList.add('text-warning');
+        //   }
+
+        //   // Close the modal
+        //   bootstrap.Modal.getInstance(document.getElementById('userModal')).hide();
+        // }
+      });
+    </script>
+
     <!-- JAVASCRIPT -->
-
 
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -1840,38 +1706,40 @@ td:first-child:hover {
     <!-- App js -->
     <script src="assets/js/app.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const themeToggleBtn = document.getElementById("themeToggle");
-          const html = document.documentElement;
-  
-          // Check localStorage for saved theme
-          let savedTheme = localStorage.getItem("bs-theme") || "light";
-          html.setAttribute("data-bs-theme", savedTheme);
-  
-          // Update button icon based on current theme
-          function updateIcon(theme) {
-            themeToggleBtn.innerHTML =
-              theme === "dark"
-                ? '<i class="bx bx-sun fs-22"></i>' // Sun icon for dark mode
-                : '<i class="bx bx-moon fs-22"></i>'; // Moon icon for light mode
-          }
-          updateIcon(savedTheme);
-  
-          // Toggle theme on button click
-          themeToggleBtn.addEventListener("click", function () {
-            let currentTheme =
-              html.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
-            html.setAttribute("data-bs-theme", currentTheme);
-            localStorage.setItem("bs-theme", currentTheme);
-            updateIcon(currentTheme);
-          });
-        });
-      </script>
-     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const fullscreenBtn = document.querySelector("[data-toggle='fullscreen']");
+        const themeToggleBtn = document.getElementById("themeToggle");
+        const html = document.documentElement;
+
+        // Check localStorage for saved theme
+        let savedTheme = localStorage.getItem("bs-theme") || "light";
+        html.setAttribute("data-bs-theme", savedTheme);
+
+        // Update button icon based on current theme
+        function updateIcon(theme) {
+          themeToggleBtn.innerHTML =
+            theme === "dark"
+              ? '<i class="bx bx-sun fs-22"></i>' // Sun icon for dark mode
+              : '<i class="bx bx-moon fs-22"></i>'; // Moon icon for light mode
+        }
+        updateIcon(savedTheme);
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener("click", function () {
+          let currentTheme =
+            html.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+          html.setAttribute("data-bs-theme", currentTheme);
+          localStorage.setItem("bs-theme", currentTheme);
+          updateIcon(currentTheme);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const fullscreenBtn = document.querySelector(
+          "[data-toggle='fullscreen']"
+        );
         const body = document.body;
-    
+
         fullscreenBtn.addEventListener("click", function () {
           if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen().then(() => {
@@ -1883,7 +1751,7 @@ td:first-child:hover {
             });
           }
         });
-    
+
         // Listen for fullscreen change event to handle cases when user exits fullscreen manually
         document.addEventListener("fullscreenchange", function () {
           if (!document.fullscreenElement) {
@@ -1892,18 +1760,65 @@ td:first-child:hover {
         });
       });
     </script>
-     <script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
-      const navLinks = document.querySelectorAll(".nav-link");
-      const currentPath = window.location.pathname.split("/").pop(); // Get the current page filename
-  
-      navLinks.forEach(link => {
+        const navLinks = document.querySelectorAll(".nav-link");
+        const currentPath = window.location.pathname.split("/").pop(); // Get the current page filename
+
+        navLinks.forEach((link) => {
           if (link.getAttribute("href") === currentPath) {
-              link.classList.add("active-link"); // Add active class
+            link.classList.add("active-link"); // Add active class
           }
+        });
       });
-  });
-  
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const customRangePicker = document.getElementById("customRangePicker");
+        const dateRangeInput = document.getElementById("dateRangeInput");
+        const dateRangeButton = document.getElementById("dateRangeButton");
+
+        // Initialize Flatpickr on hidden input
+        const fp = flatpickr(dateRangeInput, {
+          mode: "range",
+          dateFormat: "d M, Y",
+          onClose: function (selectedDates, dateStr) {
+            if (dateStr) {
+              dateRangeButton.innerText = dateStr;
+            }
+          },
+        });
+
+        // Open Flatpickr when clicking on "Custom Range"
+        customRangePicker.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default anchor behavior
+          fp.open(); // Open Flatpickr
+        });
+      });
+
+      // Update dropdown title for predefined selections
+      function updateDropdown(label) {
+        document.getElementById("dateRangeButton").innerText = label;
+      }
+    </script>
+    <script>
+      document
+        .getElementById("topnav-hamburger-icon")
+        .addEventListener("click", function () {
+          // Toggle the 'open' class on the hamburger icon
+          const hamburgerIcon = this.querySelector(".hamburger-icon");
+          hamburgerIcon.classList.toggle("open");
+
+          // Update the data-sidebar-size attribute on the HTML element
+          const htmlElement = document.documentElement;
+          if (hamburgerIcon.classList.contains("open")) {
+            htmlElement.setAttribute("data-sidebar-size", "sm");
+          } else {
+            htmlElement.removeAttribute("data-sidebar-size");
+            // Alternatively, set to default size (e.g., 'lg') if needed:
+            // htmlElement.setAttribute('data-sidebar-size', 'lg');
+          }
+        });
     </script>
   </body>
 </html>

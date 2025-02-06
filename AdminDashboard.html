@@ -1337,26 +1337,20 @@
             <ul class="navbar-nav" id="navbar-nav">
               <li class="menu-title"><span data-key="t-menu">Menu</span></li>
               <li class="nav-item">
-                <a class="nav-link menu-link" href="index.html">
-                  <i class="ri-dashboard-2-line"></i>
-                  <span data-key="t-widgets">Dashboard</span>
+                <a class="nav-link menu-link" href="AdminDashboard.html">
+                  <i class="ri-pages-line"></i> <span>Admin Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-link" href="Master_index.html">
-                  <i class="ri-pages-line"></i> <span>Master Dashboard</span>
+                <a class="nav-link menu-link" href="AmbassadorProfileList.html">
+                  <i class="ri-pages-line"></i>
+                  <span data-key="t-widgets">Ambassador Profile</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link menu-link" href="ScheduleRewards.html">
                   <i class="ri-money-dollar-circle-line"></i>
                   <span data-key="t-widgets">Schedule Rewards</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu-link" href="ApprovalList.html">
-                  <i class="ri-money-dollar-circle-line"></i>
-                  <span data-key="t-widgets">Ambassador Approval</span>
                 </a>
               </li>
               <!-- <li class="nav-item">
@@ -1553,7 +1547,7 @@
                               <p
                                 class="text-uppercase fw-medium text-muted text-truncate mb-0"
                               >
-                              Ambassador Approval
+                                pending/approval
                               </p>
                             </div>
                             <!-- <div class="flex-shrink-0">
@@ -1622,9 +1616,9 @@
                           >
                             <div>
                               <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                $<span class="counter-value" data-target="80"
+                                <span class="counter-value" data-target="90"
                                   >0</span
-                                >k
+                                >
                               </h4>
                               <p
                                 class="text-decoration-underline cursor-pointer mb-0"
@@ -1773,7 +1767,7 @@
                     <div class="col-lg-12">
                       <div class="card">
                         <div class="card-header">
-                          <h5 class="card-title mb-0">Ambassador Approval</h5>
+                          <h5 class="card-title mb-0">Pending/approval</h5>
                         </div>
                         <div class="card-body">
                           <table
@@ -1912,31 +1906,31 @@
                                 <td>Weam Ali Daffalla Mohammed</td>
                                 <td>Mohammed@gmail.com</td>
                                 <td>$3000</td>
-                                <td class="enrolled-count" title="View Details">2</td>
+                                <td>2</td>
                               </tr>
                               <tr>
                                 <td>Ramjaun Muhamad Bilaal</td>
                                 <td>Bilaal@gmail.com</td>
                                 <td>$1500</td>
-                                <td class="enrolled-count" title="View Details">1</td>
+                                <td>1</td>
                               </tr>
                               <tr>
                                 <td>Alameri Meera</td>
                                 <td>Meera@gmail.com</td>
-                                <td>$4500</td>
-                                <td class="enrolled-count" title="View Details">3</td>
+                                <td>$1500</td>
+                                <td>1</td>
                               </tr>
                               <tr>
                                 <td>Mehmood Janjua Saad Ghazanfar</td>
                                 <td>Ghazanfar@gmail.com</td>
                                 <td>$6000</td>
-                                <td class="enrolled-count" title="View Details">4</td>
+                                <td>4</td>
                               </tr>
                               <tr>
                                 <td>Mulenga Catherine</td>
                                 <td>Mulenga@gmail.com</td>
                                 <td>$1500</td>
-                                <td class="enrolled-count" title="View Details">1</td>
+                                <td>1</td>
                               </tr>
                             </tbody>
                           </table>
@@ -1965,7 +1959,8 @@
                                 <th>Email</th>
                                 <th>Eligible Amount</th>
                                 <th>Claimed Amount</th>
-                                <th>Total paid</th>
+                                <th>Earnings(Eligible - Claimed)</th>
+                                <th>Status</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -1975,13 +1970,15 @@
                                 <td>$1500</td>
                                 <td>0</td>
                                 <td>0</td>
+                                <td>Not Claimed</td>
                               </tr>
                               <tr>
                                 <td>Ramjaun Muhamad Bilaal</td>
                                 <td>Bilaal@gmail.com</td>
                                 <td>$1700</td>
                                 <td>$1700</td>
-                                <td>$1500</td>
+                                <td>$1700</td>
+                                <td>claimed</td>
                               </tr>
                               <tr>
                                 <td>Alameri Meera</td>
@@ -1989,6 +1986,7 @@
                                 <td>$1900</td>
                                 <td>$1900</td>
                                 <td>$1900</td>
+                                <td>claimed</td>
                               </tr>
                               <tr>
                                 <td>Mehmood Janjua Saad Ghazanfar</td>
@@ -1996,13 +1994,15 @@
                                 <td>$1750</td>
                                 <td>0</td>
                                 <td>0</td>
+                                <td>Not claimed</td>
                               </tr>
                               <tr>
                                 <td>Mulenga Catherine</td>
                                 <td>Mulenga@gmail.com</td>
                                 <td>$1700</td>
                                 <td>$1700</td>
-                                <td>$1300</td>
+                                <td>$1700</td>
+                                <td>claimed</td>
                               </tr>
                             </tbody>
                           </table>
@@ -3549,93 +3549,7 @@
         </div>
       </div>
     </div>
-
-    <!-- Add this modal structure at the end of your body -->
-    <div
-      class="modal fade "
-      id="pendingclaim-modal"
-      tabindex="-1"
-      aria-labelledby="pendingclaim-modallabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="pendingclaim-modallabel">Student Details</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="row" id="enrollment-table">
-              <div class="col-lg-12">
-                <div class="card">
-                  <div class="card-body">
-                    <table
-                      id="enrolled-counts-table-id"
-                      class="table nowrap align-middle"
-                      style="width: 100%"
-                    >
-                      <thead>
-                        <tr>
-                          <th>Student Name</th>
-                          <th>Course Name</th>
-                          <th>Registration Date</th>
-                          <th>Enrolled Date</th>
-                          <th>Total Fees</th>
-                          <th>Paid So Far</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Ramjaun Muhamad Bilaal</td>
-                          <td>
-                            Doctorate of Business Administration - Woolf
-                          </td>
-
-                          <td>10-01-2025</td>
-                                                    <td>19-01-2025</td>
-
-                                                    <td>$1500</td>
-                          <td>75%</td>
-                        </tr>
-                        <tr>
-                          <td>Alameri Meera</td>
-                          <td>MBA in Business Analytics</td>
-                          <td>25-01-2025</td>
-                          <td>19-12-2024</td>
-
-                          <td>$2500</td>
-                          <td>23%</td>
-                        </tr>
-                        <tr>
-                          <td>Mulenga Catherine</td>
-                          <td>
-                            Doctorate of Business Administration - Woolf
-                          </td>
-
-                          <td>30-01-2025</td>
-                          <td>15-12-2024</td>
-
-                          <td>$3000</td>
-                          <td>0</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <!--end col-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- JAVASCRIPT -->
-     <!-- widget tables -->
     <script>
       // Get references to elements
       const earningsLink = document.getElementById("earnings-link");
@@ -3719,7 +3633,6 @@
 
     <!-- App js -->
     <script src="assets/js/app.js"></script>
-    <!-- table script -->
     <script>
       $(document).ready(function () {
         $("#earnings-table-id").DataTable({
@@ -3742,13 +3655,8 @@
           responsive: true,
           // buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
         });
-        $("#enrolled-counts-table-id").DataTable({
-          responsive: true,
-        });
-        
       });
     </script>
-    <!-- counter animation script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const counters = document.querySelectorAll(".counter-value");
@@ -3772,8 +3680,6 @@
         });
       });
     </script>
-
-    <!-- dark mode light mode -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const themeToggleBtn = document.getElementById("themeToggle");
@@ -3802,8 +3708,6 @@
         });
       });
     </script>
-
-    <!-- full screen -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const fullscreenBtn = document.querySelector(
@@ -3831,8 +3735,6 @@
         });
       });
     </script>
-
-    <!-- navlink active -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navLinks = document.querySelectorAll(".nav-link");
@@ -3845,8 +3747,6 @@
         });
       });
     </script>
-
-    <!-- model popup -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         document
@@ -3862,8 +3762,6 @@
           });
       });
     </script>
-
-    <!-- custom range picker -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const customRangePicker = document.getElementById("customRangePicker");
@@ -3893,8 +3791,6 @@
         document.getElementById("dateRangeButton").innerText = label;
       }
     </script>
-
-    <!-- handburg -->
     <script>
       document
         .getElementById("topnav-hamburger-icon")
@@ -3913,23 +3809,6 @@
             // htmlElement.setAttribute('data-sidebar-size', 'lg');
           }
         });
-    </script>
-
-    <!-- popup for pending claims -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelectorAll(".enrolled-count")
-          .forEach((button) => {
-            button.addEventListener("click", function () {
-              // Show the modal
-              const modal = new bootstrap.Modal(
-                document.getElementById("pendingclaim-modal")
-              );
-              modal.show();
-            });
-          });
-      });
     </script>
   </body>
 </html>
