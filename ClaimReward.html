@@ -1326,13 +1326,25 @@
               <li class="nav-item">
                 <a class="nav-link menu-link" href="Ambassador_index.html">
                   <i class="ri-dashboard-2-line"></i>
-                  <span data-key="t-widgets">Dashboard</span>
+                  <span data-key="t-widgets">Ambassador Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link menu-link" href="#">
+                <a class="nav-link menu-link" href="ClaimReward.html">
                   <i class="ri-money-dollar-circle-line"></i>
                   <span data-key="t-widgets">Claim</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link menu-link" href="StudentList.html">
+                  <i class="ri-pages-line"></i>
+                  <span data-key="t-widgets">Students List</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link menu-link" href="Master_index.html">
+                  <i class="ri-pages-line"></i>
+                  <span data-key="t-widgets">Master Dashboard</span>
                 </a>
               </li>
 
@@ -3576,6 +3588,20 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".nav-link");
+        const currentPath = window.location.pathname.split("/").pop(); // Get the current page filename
+
+        navLinks.forEach((link) => {
+          if (link.getAttribute("href") === currentPath) {
+            
+            link.classList.add("active-link"); // Add active class
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         document
           .querySelectorAll("#alternative-pagination button")
           .forEach((button) => {
@@ -3589,18 +3615,7 @@
           });
       });
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const navLinks = document.querySelectorAll(".nav-link");
-        const currentPath = window.location.pathname.split("/").pop(); // Get the current page filename
-
-        navLinks.forEach((link) => {
-          if (link.getAttribute("href") === "ClaimReward") {
-            link.classList.add("active-link"); // Add active class
-          }
-        });
-      });
-    </script>
+    
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const customRangePicker = document.getElementById("customRangePicker");
