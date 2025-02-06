@@ -1341,8 +1341,7 @@
                   <i class="ri-pages-line"></i> <span>Master Dashboard</span>
                 </a>
               </li>
-              
-              
+
               <li class="nav-item">
                 <a class="nav-link menu-link" href="ScheduleRewards.html">
                   <i class="ri-money-dollar-circle-line"></i>
@@ -1555,7 +1554,7 @@
                               <p
                                 class="text-uppercase fw-medium text-muted text-truncate mb-0"
                               >
-                              Ambassador Approval
+                                Ambassador Approval
                               </p>
                             </div>
                             <!-- <div class="flex-shrink-0">
@@ -1914,31 +1913,41 @@
                                 <td>Weam Ali Daffalla Mohammed</td>
                                 <td>Mohammed@gmail.com</td>
                                 <td>$3000</td>
-                                <td class="enrolled-count" title="View Details">2</td>
+                                <td class="enrolled-count" title="View Details">
+                                  2
+                                </td>
                               </tr>
                               <tr>
                                 <td>Ramjaun Muhamad Bilaal</td>
                                 <td>Bilaal@gmail.com</td>
                                 <td>$1500</td>
-                                <td class="enrolled-count" title="View Details">1</td>
+                                <td class="enrolled-count" title="View Details">
+                                  1
+                                </td>
                               </tr>
                               <tr>
                                 <td>Alameri Meera</td>
                                 <td>Meera@gmail.com</td>
                                 <td>$4500</td>
-                                <td class="enrolled-count" title="View Details">3</td>
+                                <td class="enrolled-count" title="View Details">
+                                  3
+                                </td>
                               </tr>
                               <tr>
                                 <td>Mehmood Janjua Saad Ghazanfar</td>
                                 <td>Ghazanfar@gmail.com</td>
                                 <td>$6000</td>
-                                <td class="enrolled-count" title="View Details">4</td>
+                                <td class="enrolled-count" title="View Details">
+                                  4
+                                </td>
                               </tr>
                               <tr>
                                 <td>Mulenga Catherine</td>
                                 <td>Mulenga@gmail.com</td>
                                 <td>$1500</td>
-                                <td class="enrolled-count" title="View Details">1</td>
+                                <td class="enrolled-count" title="View Details">
+                                  1
+                                </td>
                               </tr>
                             </tbody>
                           </table>
@@ -3554,7 +3563,7 @@
 
     <!-- Add this modal structure at the end of your body -->
     <div
-      class="modal fade "
+      class="modal fade"
       id="pendingclaim-modal"
       tabindex="-1"
       aria-labelledby="pendingclaim-modallabel"
@@ -3563,7 +3572,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="pendingclaim-modallabel">Student Details</h5>
+            <h5 class="modal-title" id="pendingclaim-modallabel">
+              Student Details
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -3594,14 +3605,12 @@
                       <tbody>
                         <tr>
                           <td>Ramjaun Muhamad Bilaal</td>
-                          <td>
-                            Doctorate of Business Administration - Woolf
-                          </td>
+                          <td>Doctorate of Business Administration - Woolf</td>
 
                           <td>10-01-2025</td>
-                                                    <td>19-01-2025</td>
+                          <td>19-01-2025</td>
 
-                                                    <td>$1500</td>
+                          <td>$1500</td>
                           <td>75%</td>
                         </tr>
                         <tr>
@@ -3615,9 +3624,7 @@
                         </tr>
                         <tr>
                           <td>Mulenga Catherine</td>
-                          <td>
-                            Doctorate of Business Administration - Woolf
-                          </td>
+                          <td>Doctorate of Business Administration - Woolf</td>
 
                           <td>30-01-2025</td>
                           <td>15-12-2024</td>
@@ -3637,7 +3644,7 @@
       </div>
     </div>
     <!-- JAVASCRIPT -->
-     <!-- widget tables -->
+    <!-- widget tables -->
     <script>
       // Get references to elements
       const earningsLink = document.getElementById("earnings-link");
@@ -3747,7 +3754,6 @@
         $("#enrolled-counts-table-id").DataTable({
           responsive: true,
         });
-        
       });
     </script>
     <!-- counter animation script -->
@@ -3841,9 +3847,9 @@
         const currentPath = window.location.pathname
           .split("/")
           .pop()
-          .split(".")[0]; // Get the current page filename
+          .split(".")[0].toLowerCase(); // Get the current page filename
         navLinks.forEach((link) => {
-          let linkPath = link.getAttribute("href").split(".")[0]; // Remove .html from href
+          let linkPath = link.getAttribute("href").split(".")[0].toLowerCase(); // Remove .html from href
           if (linkPath === currentPath) {
             link.classList.add("active-link"); // Apply active class
           }
@@ -3923,17 +3929,15 @@
     <!-- popup for pending claims -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelectorAll(".enrolled-count")
-          .forEach((button) => {
-            button.addEventListener("click", function () {
-              // Show the modal
-              const modal = new bootstrap.Modal(
-                document.getElementById("pendingclaim-modal")
-              );
-              modal.show();
-            });
+        document.querySelectorAll(".enrolled-count").forEach((button) => {
+          button.addEventListener("click", function () {
+            // Show the modal
+            const modal = new bootstrap.Modal(
+              document.getElementById("pendingclaim-modal")
+            );
+            modal.show();
           });
+        });
       });
     </script>
   </body>
