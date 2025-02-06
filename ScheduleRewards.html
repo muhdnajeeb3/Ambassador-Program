@@ -1330,12 +1330,7 @@
                   <i class="ri-pages-line"></i> <span>Master Dashboard</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link menu-link" href="Ambassador_index.html">
-                  <i class="ri-dashboard-2-line"></i>
-                  <span data-key="t-widgets">Ambassador Dashboard</span>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a class="nav-link menu-link" href="ScheduleRewards.html">
                   <i class="ri-money-dollar-circle-line"></i>
@@ -1346,6 +1341,12 @@
                 <a class="nav-link menu-link" href="ApprovalList.html">
                   <i class="ri-money-dollar-circle-line"></i>
                   <span data-key="t-widgets">Ambassador Approval</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link menu-link" href="Ambassador_index.html">
+                  <i class="ri-dashboard-2-line"></i>
+                  <span data-key="t-widgets">Ambassador Dashboard</span>
                 </a>
               </li>
             </ul>
@@ -1712,11 +1713,14 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navLinks = document.querySelectorAll(".nav-link");
-        const currentPath = window.location.pathname.split("/").pop(); // Get the current page filename
-
+        const currentPath = window.location.pathname
+          .split("/")
+          .pop()
+          .split(".")[0]; // Get the current page filename
         navLinks.forEach((link) => {
-          if (link.getAttribute("href") === currentPath) {
-            link.classList.add("active-link"); // Add active class
+          let linkPath = link.getAttribute("href").split(".")[0]; // Remove .html from href
+          if (linkPath === currentPath) {
+            link.classList.add("active-link"); // Apply active class
           }
         });
       });

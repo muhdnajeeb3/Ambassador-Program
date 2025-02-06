@@ -3589,12 +3589,14 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navLinks = document.querySelectorAll(".nav-link");
-        const currentPath = window.location.pathname.split("/").pop(); // Get the current page filename
-
+        const currentPath = window.location.pathname
+          .split("/")
+          .pop()
+          .split(".")[0]; // Get the current page filename
         navLinks.forEach((link) => {
-          if (link.getAttribute("href") === currentPath) {
-            
-            link.classList.add("active-link"); // Add active class
+          let linkPath = link.getAttribute("href").split(".")[0]; // Remove .html from href
+          if (linkPath === currentPath) {
+            link.classList.add("active-link"); // Apply active class
           }
         });
       });
