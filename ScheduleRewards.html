@@ -1324,13 +1324,13 @@
             <div id="two-column-menu"></div>
             <ul class="navbar-nav" id="navbar-nav">
               <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-              
+
               <li class="nav-item">
                 <a class="nav-link menu-link" href="Master_index.html">
                   <i class="ri-pages-line"></i> <span>Master Dashboard</span>
                 </a>
               </li>
-              
+
               <li class="nav-item">
                 <a class="nav-link menu-link" href="ScheduleRewards.html">
                   <i class="ri-money-dollar-circle-line"></i>
@@ -1461,43 +1461,43 @@
                       <thead>
                         <tr>
                           <th>Course Name</th>
-                          <th>Rewards</th>
-                          <th>Action</th>
+                          <th class="text-center">Rewards</th>
+                          <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>Master of Business Administration (PMU)</td>
-                          <td>$1500</td>
-                          <td title="Edit">
+                          <td class="text-center">$1500</td>
+                          <td title="Edit" class="text-center">
                             <i class="ri-edit-line fs-2 cursor-pointer"></i>
                           </td>
                         </tr>
                         <tr>
                           <td>Doctorate of Business Administration - Woolf</td>
-                          <td>$3000</td>
-                          <td title="Edit">
+                          <td class="text-center">$3000</td>
+                          <td title="Edit" class="text-center">
                             <i class="ri-edit-line fs-2 cursor-pointer"></i>
                           </td>
                         </tr>
                         <tr>
                           <td>Master of Business Administration (PMU)</td>
-                          <td>$1700</td>
-                          <td title="Edit">
+                          <td class="text-center">$1700</td>
+                          <td title="Edit" class="text-center">
                             <i class="ri-edit-line fs-2 cursor-pointer"></i>
                           </td>
                         </tr>
                         <tr>
                           <td>MBA in Business Analytics</td>
-                          <td>$2500</td>
-                          <td title="Edit">
+                          <td class="text-center">$2500</td>
+                          <td title="Edit" class="text-center">
                             <i class="ri-edit-line fs-2 cursor-pointer"></i>
                           </td>
                         </tr>
                         <tr>
                           <td>MBA in Energy and Sustainability</td>
-                          <td>$2000</td>
-                          <td title="Edit">
+                          <td class="text-center">$2000</td>
+                          <td title="Edit" class="text-center">
                             <i class="ri-edit-line fs-2 cursor-pointer"></i>
                           </td>
                         </tr>
@@ -1521,7 +1521,7 @@
                 <script>
                   document.write(new Date().getFullYear());
                 </script>
-                © Velzon.
+                ©
               </div>
               <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
@@ -1577,39 +1577,44 @@
     </div>
 
     <div
-    class="modal fade"
-    id="userModal"
-    tabindex="-1"
-    aria-labelledby="userModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="userModalLabel">Edit Details</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <div class="mb-3">
-            <strong>Course Name: </strong>
-            <span id="modalUserName"> pages-line</span>
+      class="modal fade"
+      id="userModal"
+      tabindex="-1"
+      aria-labelledby="userModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="userModalLabel">Edit Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="mb-3">
-            <strong>Reward:</strong>
-            <span id="modalUserEmail">$1500</span>
-          </div>
-          <div>
-            <button class="btn-primary btn">Save</button>
+          <div class="modal-body">
+            <div class="mb-3">
+              <strong>Course Name: </strong><br />
+              <input
+                type="text"
+                placeholder=""
+                value="Doctorate of Business Administration - Woolf"
+              />
+            </div>
+            <div class="mb-3">
+              <strong>Reward:</strong><br />
+              <input type="text" placeholder="" value="$1500" />
+              <!-- <span id="modalUserEmail">$1500</span> -->
+            </div>
+            <div>
+              <button class="btn-primary btn">Save</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <!-- JAVASCRIPT -->
 
@@ -1640,21 +1645,23 @@
     <script src="assets/js/pages/datatables.init.js"></script>
     <!-- App js -->
     <script src="assets/js/app.js"></script>
+
+    
+    <!-- datatalbe scroll -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelectorAll("#scroll-horizontal i")
-          .forEach((button) => {
-            button.addEventListener("click", function () {
-              // Show the modal
-              const modal = new bootstrap.Modal(
-                document.getElementById("userModal")
-              );
-              modal.show();
-            });
+        document.querySelectorAll("#scroll-horizontal i").forEach((button) => {
+          button.addEventListener("click", function () {
+            // Show the modal
+            const modal = new bootstrap.Modal(
+              document.getElementById("userModal")
+            );
+            modal.show();
           });
+        });
       });
     </script>
+    <!-- theme dark -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const themeToggleBtn = document.getElementById("themeToggle");
@@ -1683,6 +1690,7 @@
         });
       });
     </script>
+    <!-- fullscreen -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const fullscreenBtn = document.querySelector(
@@ -1710,20 +1718,24 @@
         });
       });
     </script>
+    <!-- nav link active -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-  const navLinks = document.querySelectorAll(".nav-link");
-  let currentPath = window.location.pathname.toLowerCase();
+        const navLinks = document.querySelectorAll(".nav-link");
+        let currentPath = window.location.pathname.toLowerCase();
 
-  navLinks.forEach((link) => {
-    let linkPath = new URL(link.href, window.location.origin).pathname.toLowerCase();
-    if (linkPath === currentPath) {
-      link.classList.add("active-link");
-    }
-  });
-});
-
+        navLinks.forEach((link) => {
+          let linkPath = new URL(
+            link.href,
+            window.location.origin
+          ).pathname.toLowerCase();
+          if (linkPath === currentPath) {
+            link.classList.add("active-link");
+          }
+        });
+      });
     </script>
+    <!-- customrange picker -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const customRangePicker = document.getElementById("customRangePicker");
@@ -1753,6 +1765,7 @@
         document.getElementById("dateRangeButton").innerText = label;
       }
     </script>
+    <!-- humburg -->
     <script>
       document
         .getElementById("topnav-hamburger-icon")
